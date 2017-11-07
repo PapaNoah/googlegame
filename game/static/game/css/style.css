@@ -1,0 +1,76 @@
+.center {
+    text-align: center;
+}
+.btn-xl {
+    font-size: 42px;
+}
+div.tooltip-inner {
+    font-family: 'Roboto Mono', monospace;
+}
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
+.win {
+    background-color: #2E9769;
+    border-radius: 5px;
+}
+
+.golden-win {
+    background-color: gold;
+    border-radius: 5px;
+}
+
+@keyframes rot {
+    10% {transform: rotate(60deg)}
+    20% {transform: rotate(-60deg)}
+    30% {transform: rotate(60deg)}
+    40% {transform: rotate(-60deg)}
+    50% {transform: rotate(60deg)}
+    60% {transform: rotate(-60deg)}
+    70% {transform: rotate(60deg)}
+    80% {transform: rotate(-60deg)}
+    90% {transform: rotate(60deg)}
+}
+@keyframes grow {
+    from {transform: scale(0.1)}
+    to {transform: scale(1.0)}
+}
+.shoe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 34%;
+    height: 60%;
+}
+.ticket {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 42%;
+    height: 50%;
+}
+.overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 10%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 100%;
+    z-index: 3;
+    cursor: pointer;
+}
+.anim-shoe {
+    animation: rot;
+    animation-duration: 2s;
+    animation-delay: 0s;
+}
+
+.anim-ticket {
+    animation: grow;
+    animation-duration: 2s;
+    animation-delay: 0s;
+}
