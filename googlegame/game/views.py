@@ -10,7 +10,6 @@ from django.shortcuts import redirect, render, reverse
 
 from .apps import GameConfig
 from .models import Noun
-from .utils import greater_zero_cmp
 
 
 def home(request):
