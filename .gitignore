@@ -1,4 +1,3 @@
 settings.py
 settings_prod.py
-db.sqlite3
 __pycache__/
