@@ -1,0 +1,60 @@
+{% extends 'game/base.html' %} {% load static %} {% block content %}
+<div id="app" class="container">
+    <div class="row">
+        <div class="full-width">
+            <h2 class="title">Google Game|</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="full-width">
+            <p>Everyone starts with a
+                <b @click="fetchRandom">base</b> word. Each player appends something to the base so that the number of google results for the term
+                is as small as possible, however above zero.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="two columns">
+            <button @click="fetchRandom" class="button-primary" tabindex="-1">
+                <i class="fa fa-random" aria-hidden="true"></i> Random</button>
+        </div>
+        <div class="ten columns">
+            <input class="u-full-width mousetrap" placeholder="base" id="base-input" type="text" v-model="base">
+        </div>
+    </div>
+    <div class="row">
+        <div class="three columns">
+            <h3>Name</h3>
+        </div>
+        <div class="four columns">
+            <h3>Term</h3>
+        </div>
+        <div class="three columns">
+            <h3>Hits</h3>
+        </div>
+        <div class="two columns">
+            <h3>Score</h3>
+        </div>
+    </div>
+    <hr>
+    <template v-if="players.length > 0">
+        <player-interface v-for="player in players" :key="player.id" :player="player" :base="base" :winners="winners" @delete="deletePlayer"></player-interface>
+    </template>
+    <h6 v-else>No players</h6>
+    <add-player :id="nextId" @player="addNewPlayer"></add-player>
+    <hr>
+    <div class="row">
+        <button @click="startNextRound" class="button-primary">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i> Next Round</button>
+        <a @click="showHist = !showHist" class="button">Toggle History</a>
+        <a @click="showShenanigans = !showShenanigans" class="button">Toggle Shenanigans</a>
+        <a @click="resetScore" class="button">Reset Score</a>
+    </div>
+    <div class="row">
+        <shenanigan-list :shenanigans="shenanigans" v-show="showShenanigans"></shenanigan-list>
+    </div>
+    <div class="row">
+        <history :players="players" @complete="onRoundCompleted" :next-round-flag="doNextRound" :winners="winners" v-show="showHist"></history>
+    </div>
+    <shenanigan v-for="entry in shenanigans" :key="entry.id" :id="entry.id" :urls="entry.urls" :classes="entry.classes" @off="closeAnimation" :display="entry.show" :animation="entry.animation"></shenanigan>
+</div>
+{% endblock content %}

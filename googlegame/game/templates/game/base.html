@@ -1,0 +1,22 @@
+{% load static %}
+<html lang="de">
+    <head>
+        <title>Google Game</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway:300" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'game/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'game/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'game/css/skeleton.css' %}">
+        <link rel="stylesheet" href="{% static 'game/css/style.css' %}">
+    </head>
+    <body>
+        {% block content %}{% endblock content %}
+        <script type="text/javascript" charset="utf-8" src="{% static 'game/js/jquery.min.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" src="{% static 'game/js/mousetrap.min.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" src="{% static 'game/js/vue.min.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" src="{% static 'game/js/axios.min.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" src="{% static 'game/js/game.min.js' %}"></script>
+    </body>
+</html>
