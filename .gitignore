@@ -1,4 +1,4 @@
 settings.py
 settings_prod.py
 db.sqlite3
-_pycache_/
+__pycache__/
